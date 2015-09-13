@@ -18,12 +18,12 @@ docker pull ryanratcliff/kafka
 docker run -d --link my_zookeeper:zookeeper ryanratcliff/kafka
 ```
 
-### To startup with data directory located on host and all ports exposed to host
+### To startup with all ports exposed to host
 ```
 docker run -d -P --link my_zookeeper:zookeeper ryanratcliff/kafka
 ```
 
-### To startup with data directory located on host and specific port exposed
+### To startup with specific port exposed
 ```
 docker run -d p 9092:9092 --link my_zookeeper:zookeeper ryanratcliff/kafka
 ```
