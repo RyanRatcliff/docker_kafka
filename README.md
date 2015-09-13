@@ -1,6 +1,29 @@
-# docker_kafka
+# Docker Kafka
+A very basic Docker Kafka container.
 
-## Create a topic
+### To build the container
 ```
-docker run --rm ryanratcliff/kafka kafka-topics.sh --create --topic test --replication-factor 1 --partitions 1 --zookeeper dockerstormcluster_zookeeper_1:2181
+docker build -t ryanratcliff/kafka .
+```
+
+### Alternatively, the container can be pulled from Docker Registry
+```
+docker pull ryanratcliff/kafka
+```
+
+# Example usages
+
+### To startup as is, requires a zookeeper instance defined as 'zookeeper'
+```
+docker run -d --link my_zookeeper:zookeeper ryanratcliff/kafka
+```
+
+### To startup with data directory located on host and all ports exposed to host
+```
+docker run -d -P --link my_zookeeper:zookeeper ryanratcliff/kafka
+```
+
+### To startup with data directory located on host and specific port exposed
+```
+docker run -d p 9092:9092 --link my_zookeeper:zookeeper ryanratcliff/kafka
 ```
