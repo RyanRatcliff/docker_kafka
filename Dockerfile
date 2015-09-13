@@ -10,4 +10,5 @@ ADD start.sh /usr/local/bin/start.sh
 RUN chmod +x /opt/kafka/bin/kafka-server-start.sh
 RUN chmod +x /usr/local/bin/start.sh
 ADD server.properties /opt/kafka/config/server.properties
+EXPOSE 9092
 ENTRYPOINT ["/usr/local/bin/start.sh"]
