@@ -27,3 +27,21 @@ docker run -d -P --link my_zookeeper:zookeeper ryanratcliff/kafka
 ```
 docker run -d -p 9092:9092 --link my_zookeeper:zookeeper ryanratcliff/kafka
 ```
+
+### Starting up with a zookeeper container using docker-compose
+```
+version: '2'
+services:
+  zookeeper:
+    image: ryanratcliff/zookeeper
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: ryanratcliff/kafka
+    hostname: kafka
+    ports:
+      - "9092:9092"
+    links:
+       - zookeeper
+```
